@@ -59,8 +59,14 @@
     <Compile Include="Pavilion.xaml.cs">
       <DependentUpon>Pavilion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PavilionUpdate.xaml.cs">
+      <DependentUpon>PavilionUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TC.xaml.cs">
       <DependentUpon>TC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TCUpdate.xaml.cs">
+      <DependentUpon>TCUpdate.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -82,7 +88,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PavilionUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TCUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

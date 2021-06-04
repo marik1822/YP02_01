@@ -28,5 +28,15 @@ namespace YP02_01
         {
             Environment.Exit(0);
         }
+
+        private void Main_Click(object sender, RoutedEventArgs e)
+        {
+            frameM.Content = new TC();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            frameM.Content = new Pavilion();
+        }
     }
 }

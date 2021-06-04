@@ -6,9 +6,28 @@
       xmlns:local="clr-namespace:YP02_01"
       mc:Ignorable="d" 
       d:DesignHeight="1016" d:DesignWidth="1912"
-      Title="Pavilion" Background="White">
+      Title="Pavilion" Background="White" Loaded="Page_Loaded">
 
     <Grid>
-        
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Name="pavilDG" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top" Width="1912">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Статус ТЦ" Binding="{Binding Status}"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding Name }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Номер этажа" Binding="{Binding Stage }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Номер павильона" Binding="{Binding NumberOfPavil }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Площадь" Binding="{Binding Area }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Статус Павильона" Binding="{Binding StatusPavil }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Коэффициент добавочной стоимости" Binding="{Binding Koef }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Стоимость кв.м." Binding="{Binding PriceForMetr }"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="Update" FontFamily="Arial" Foreground="#FF37474F" Content=" ПОСМОТРЕТЬ " Cursor="Hand" Click="Update_Click" ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Delete" Foreground="#FF37474F" Content="Удалить" HorizontalAlignment="Left" Margin="1627,930,0,0" VerticalAlignment="Top" Width="111" FontFamily="Arial" Cursor="Hand" IsCancel="True" Click="Delete_Click"/>
     </Grid>
 </Page>
