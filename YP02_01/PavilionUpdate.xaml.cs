@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration; 
+using System.Configuration;
 
 namespace YP02_01
 {
@@ -26,6 +26,7 @@ namespace YP02_01
         static string connectionString;
         SqlDataAdapter adapter;
         static DataTable Pavilions;
+        DataTable Pavils;
 
         public PavilionUpdate()
         {
@@ -43,9 +44,73 @@ namespace YP02_01
             }
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        static DataTable ExecuteSql(string sql)
         {
-            NavigationService.Navigate(new Pavilion());
+            //string sql;
+            Pavilions = new DataTable();
+            SqlConnection connection = null;
+
+            connection = new SqlConnection(connectionString);
+            using (connection)
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader();
+                using (reader)
+                {
+                    Pavilions.Load(reader);
+                }
+            }
+            return Pavilions;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            SqlConnection connection = null;
+            string sql2;
+            string sql;
+            Pavils = new DataTable();
+            sql2 = "SELECT DISTINCT Status from Pavils where Status!='Удален';";
+            connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql2, connection);
+            connection.Open();
+
+            adapter.Fill(Pavils);
+            for (int i = 0; i < Pavils.Rows.Count; i++)
+            {
+                Status.Items.Add(Pavils.Rows[i]["Status"].ToString());
+            }
+            connection.Close();
+
+            Pavilions = ExecuteSql("SELECT * FROM Pavils WHERE Name='" + Pavilion.PavilName + "'");
+            Stage_.Text = Pavilions.Rows[0]["Stage"].ToString();
+            NumberOfPavil_.Text = Pavilions.Rows[0]["NumberOfPavil"].ToString();
+            Area_.Text = Pavilions.Rows[0]["Area"].ToString();
+            Koef_.Text = Pavilions.Rows[0]["Koef"].ToString();
+            Price_.Text = Pavilions.Rows[0]["Price"].ToString();
+            /*switch (Pavilions.Rows[0]["Status"].ToString())
+            {
+                case "План":
+                    Status.SelectedIndex = 0;
+                    break;
+                case "Реализация":
+                    Status.SelectedIndex = 1;
+                    break;
+                case "Строительсто":
+                    Status.SelectedIndex = 2;
+                    break;
+            }*/
+
+        }
+
+        private void Status_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
