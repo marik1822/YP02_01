@@ -36,6 +36,7 @@ namespace YP02_01
             KaptchaLog.Opacity = 0.0;
             KaptchaLog.IsEnabled = false;
             Logchick = 0;
+            Nois.IsEnabled = false;
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection connection = new SqlConnection(connectionString);
             try
@@ -130,6 +131,7 @@ namespace YP02_01
             else
             if((Logchick>2)&&(KaptchaLog.IsEnabled==false))
             {
+                Nois.IsEnabled = true;
                 Nois.Opacity = 0.75;
                 GenerationCapcha();
                 KaptchaLog.Opacity = 1;

@@ -29,5 +29,14 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="Delete" Foreground="#FF37474F" Content="Удалить" HorizontalAlignment="Left" Margin="1627,930,0,0" VerticalAlignment="Top" Width="111" FontFamily="Arial" Cursor="Hand" IsCancel="True" Click="Delete_Click"/>
+        <ComboBox Foreground="#FF37474F" Name="Stage" FontFamily="Arial" HorizontalAlignment="Left" Margin="76,873,0,0" VerticalAlignment="Top" Width="172"  SelectionChanged="Stage_SelectionChanged" />
+        <Label  Foreground="#FF37474F" Content="Этаж:" HorizontalAlignment="Left" Margin="20,873,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Label  Foreground="#FF37474F" Content="Площадь:" HorizontalAlignment="Left" Margin="387,873,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <TextBox x:Name="From" HorizontalAlignment="Left" Height="24" Margin="517,873,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" MaxLength="3" />
+        <TextBox x:Name="To"   HorizontalAlignment="Left" Height="24" Margin="667,873,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="72" MaxLength="3" />
+        <Label  Foreground="#FF37474F" Content="От: " HorizontalAlignment="Left" Margin="470,873,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Label  Foreground="#FF37474F" Content="До: " HorizontalAlignment="Left" Margin="615,873,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Button x:Name="AreaBtn" Foreground="#FF37474F" Content="Выбрать площадь" HorizontalAlignment="Left" Margin="777,876,0,0" VerticalAlignment="Top" Width="111" FontFamily="Arial" Cursor="Hand" IsCancel="True" Click="AreaBtn_Click"/>
+
     </Grid>
 </Page>
