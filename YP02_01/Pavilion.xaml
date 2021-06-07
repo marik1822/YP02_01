@@ -38,5 +38,6 @@
         <Label  Foreground="#FF37474F" Content="До: " HorizontalAlignment="Left" Margin="615,873,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
         <Button x:Name="AreaBtn" Foreground="#FF37474F" Content="Выбрать площадь" HorizontalAlignment="Left" Margin="777,876,0,0" VerticalAlignment="Top" Width="111" FontFamily="Arial" Cursor="Hand" IsCancel="True" Click="AreaBtn_Click"/>
 
+        <Button Name="AddPavil"  Content="Добавить Павильон" HorizontalAlignment="Left" Margin="1411,930,0,0" VerticalAlignment="Top" Width="132" FontFamily="Arial"  Cursor="Hand" IsCancel="True" Click="AddPavil_Click"  />
     </Grid>
 </Page>

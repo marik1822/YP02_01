@@ -163,5 +163,10 @@ namespace YP02_01
                     MessageBox.Show("Неверно введены значения");
             }
         }
+
+        private void AddPavil_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddPavil());
+        }
     }
 }

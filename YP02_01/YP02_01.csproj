@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddPavil.xaml.cs">
+      <DependentUpon>AddPavil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddTC.xaml.cs">
       <DependentUpon>AddTC.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
     <Compile Include="TCUpdate.xaml.cs">
       <DependentUpon>TCUpdate.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddPavil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddTC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
