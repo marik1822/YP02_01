@@ -143,5 +143,9 @@ namespace YP02_01
             tc_.ItemsSource = TC1.DefaultView; //привязка к DataGrid
         }
 
+        private void AddTC_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddTC());
+        }
     }
 }

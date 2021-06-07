@@ -19,9 +19,9 @@ using System.Configuration;
 namespace YP02_01
 {
     /// <summary>
-    /// Логика взаимодействия для TCUpdate.xaml
+    /// Логика взаимодействия для AddTC.xaml
     /// </summary>
-    public partial class TCUpdate : Page
+    public partial class AddTC : Page
     {
         static string connectionString;
         SqlDataAdapter adapter;
@@ -29,7 +29,8 @@ namespace YP02_01
         static DataTable STC;
         static DataTable TC_;
         static DataTable TC1;
-        public TCUpdate()
+        static bool clic_;
+        public AddTC()
         {
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -45,36 +46,20 @@ namespace YP02_01
             }
         }
 
-        static DataTable ExecuteSql(string sql)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            //string sql;
-            TCtable = new DataTable();
-            SqlConnection connection = null;
-
-            connection = new SqlConnection(connectionString);
-            using (connection)
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sql, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                using (reader)
-                {
-                    TCtable.Load(reader);
-                }
-            }
-            return TCtable;
+            clic_ = true;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Name_.IsEnabled = false;
-            SqlConnection connection = null;
-            string sql2;
+            clic_ = false; ;
             string sql;
+            SqlConnection connection = null;
             STC = new DataTable();
-            sql2 = "SELECT DISTINCT Status from TC where Status!='Удален';";
+            sql = "SELECT DISTINCT Status from TC ;";
             connection = new SqlConnection(connectionString);
-            SqlDataAdapter adapter = new SqlDataAdapter(sql2, connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
             connection.Open();
 
             adapter.Fill(STC);
@@ -83,36 +68,9 @@ namespace YP02_01
                 Status.Items.Add(STC.Rows[i]["Status"].ToString());
             }
             connection.Close();
-            TCtable = ExecuteSql("SELECT Image FROM TC WHERE Name='" + TC.TCName + "' ");
-            LViewImage.ItemsSource = TCtable.DefaultView;
-            TCtable = ExecuteSql("SELECT * FROM TC WHERE Name='" + TC.TCName + "'");
-            Name_.Text = TCtable.Rows[0]["Name"].ToString();
-            Koef_.Text = TCtable.Rows[0]["Koef"].ToString();
-            PriceBuild_.Text = TCtable.Rows[0]["Price"].ToString();
-            City_.Text = TCtable.Rows[0]["City"].ToString();
-            Floor_.Text = TCtable.Rows[0]["Stages"].ToString();
-            NumOfPav_.Text = TCtable.Rows[0]["CountPavil"].ToString();
-            switch (TCtable.Rows[0]["Status"].ToString())
-            {
-                case "План":
-                    Status.SelectedIndex = 0;
-                    break;
-                case "Реализация":
-                    Status.SelectedIndex = 1;
-                    break;
-                case "Строительсто":
-                    Status.SelectedIndex = 2;
-                    break;
-            }
-
         }
 
-        private void Status_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void AddPhoto_Click(object sender, RoutedEventArgs e)
         {
             string sql3;
             TC1 = new DataTable();

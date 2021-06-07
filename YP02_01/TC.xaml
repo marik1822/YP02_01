@@ -32,5 +32,6 @@
         <ComboBox Name="City" Foreground="#FF37474F" FontFamily="Arial" HorizontalAlignment="Left" Margin="438,873,0,0" VerticalAlignment="Top" Width="153" SelectionChanged="City_SelectionChanged"/>
         <Label  Foreground="#FF37474F" Content="Статус:" HorizontalAlignment="Left" Margin="20,873,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
         <Label  Foreground="#FF37474F" Content="Город:" HorizontalAlignment="Left" Margin="387,873,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Button Name="AddTC"  Content="Добавить ТЦ" HorizontalAlignment="Left" Margin="1442,940,0,0" VerticalAlignment="Top" Width="112" FontFamily="Arial"  Cursor="Hand" IsCancel="True" Click="AddTC_Click"  />
     </Grid>
 </Page>
