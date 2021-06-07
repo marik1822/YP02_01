@@ -31,6 +31,8 @@ namespace YP02_01
         DataTable Areas;
 
         public static string PavilName { get; set; }
+        public static string PavilNum { get; set; }
+        public static string PavilStage { get; set; }
 
         public Pavilion()
         {
@@ -105,6 +107,8 @@ namespace YP02_01
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             PavilName = Pavilions.Rows[pavilDG.SelectedIndex]["Name"].ToString().Trim();
+            PavilNum = Pavilions.Rows[pavilDG.SelectedIndex]["NumberOfPavil"].ToString().Trim();
+            PavilStage = Pavilions.Rows[pavilDG.SelectedIndex]["Stage"].ToString().Trim();
             NavigationService.Navigate(new PavilionUpdate());
         }
 

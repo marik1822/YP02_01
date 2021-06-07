@@ -66,9 +66,10 @@ namespace YP02_01
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Stage_.IsEnabled = false;
+            NumberOfPavil_.IsEnabled = false;
             SqlConnection connection = null;
             string sql2;
-            string sql;
             Pavils = new DataTable();
             sql2 = "SELECT DISTINCT Status from Pavils where Status!='Удален';";
             connection = new SqlConnection(connectionString);
@@ -82,24 +83,24 @@ namespace YP02_01
             }
             connection.Close();
 
-            Pavilions = ExecuteSql("SELECT * FROM Pavils WHERE Name='" + Pavilion.PavilName + "'");
+            Pavilions = ExecuteSql("SELECT * FROM Pavils WHERE ((Name='" + Pavilion.PavilName + "') and (NumberOfPavil='" + Pavilion.PavilNum + "') and (Stage='" + Pavilion.PavilStage + "'))");
             Stage_.Text = Pavilions.Rows[0]["Stage"].ToString();
             NumberOfPavil_.Text = Pavilions.Rows[0]["NumberOfPavil"].ToString();
             Area_.Text = Pavilions.Rows[0]["Area"].ToString();
             Koef_.Text = Pavilions.Rows[0]["Koef"].ToString();
-            Price_.Text = Pavilions.Rows[0]["Price"].ToString();
-            /*switch (Pavilions.Rows[0]["Status"].ToString())
+            Price_.Text = Pavilions.Rows[0]["PriceForMetr"].ToString();
+            switch (Pavilions.Rows[0]["Status"].ToString())
             {
-                case "План":
+                case "Арендован":
                     Status.SelectedIndex = 0;
                     break;
-                case "Реализация":
+                case "Забронировано":
                     Status.SelectedIndex = 1;
                     break;
-                case "Строительсто":
+                case "Свободен":
                     Status.SelectedIndex = 2;
                     break;
-            }*/
+            }
 
         }
 
@@ -110,7 +111,44 @@ namespace YP02_01
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-
+            string sql3;
+            Pavilions = new DataTable();
+            string st = "";
+            switch (Status.SelectedIndex)
+            {
+                case 0:
+                    st = "Арендован";
+                    break;
+                case 1:
+                    st = "Забронировано";
+                    break;
+                case 2:
+                    st = "Свободен";
+                    break;
+            }
+            SqlConnection connection = null;
+            string Koef1 = "";
+            string Koef2 = Koef_.Text.ToString();
+            for (int i = 0; i != Koef2.Length; i++)
+            {
+                if (Koef2[i] == ',')
+                {
+                    Koef1 = Koef1 + ".";
+                }
+                else
+                    Koef1 = Koef1 + Koef2[i];
+            }
+            sql3 = "UPDATE Pavils SET NumberOfPavil=" + NumberOfPavil_.Text + ", Stage='" + Stage_ + "', Status='" + st + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef1 + "  WHERE Name='" + Pavilion.PavilName + "';";
+            connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand(sql3, connection);
+            connection.Open();
+            int num = command.ExecuteNonQuery();
+            if (num != 0)
+            {
+                MessageBox.Show("Павильон успешно редактирован");
+            }
+            else
+                MessageBox.Show("Ошибка редактирования");
         }
     }
 }

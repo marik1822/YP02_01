@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:YP02_01"
       mc:Ignorable="d" 
       d:DesignHeight="1016" d:DesignWidth="1912"
-      Title="PavilionUpdate" Background="White" >
+      Title="PavilionUpdate" Background="White" Loaded="Page_Loaded">
 
     <Grid>
 
@@ -33,7 +33,7 @@
         <Label  Foreground="#FF37474F" Content="Коэффициент добавочной стоимости:" HorizontalAlignment="Left" Margin="97,253,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1" Grid.Column="1"/>
         <Label  Foreground="#FF37474F" Content="Стоимость кв.м.:" HorizontalAlignment="Left" Margin="97,314,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1" Grid.Column="1"/>
         <TextBox Name="Price_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="215,315,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="382" Grid.Row="1"/>
-        <Button Name="Save"  Content="Сохранить" HorizontalAlignment="Left" Margin="298,357,0,0" VerticalAlignment="Top" Width="111" FontFamily="Arial"  Cursor="Hand" IsCancel="True"  Grid.Column="2" Grid.Row="2" Click="Save_Click" />
-
+        
+        <Button Name="Save" Content="Сохранить" HorizontalAlignment="Left" Margin="487,10,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial" Cursor="Hand" IsCancel="True" Grid.Column="1" Grid.Row="2" Click="Save_Click" />
     </Grid>
 </Page>
