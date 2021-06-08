@@ -48,30 +48,7 @@ namespace YP02_01
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            clic_ = true;
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            clic_ = false; ;
-            string sql;
-            SqlConnection connection = null;
-            STC = new DataTable();
-            sql = "SELECT DISTINCT Status from TC ;";
-            connection = new SqlConnection(connectionString);
-            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
-            connection.Open();
-
-            adapter.Fill(STC);
-            for (int i = 0; i < STC.Rows.Count; i++)
-            {
-                Status.Items.Add(STC.Rows[i]["Status"].ToString());
-            }
-            connection.Close();
-        }
-
-        private void AddPhoto_Click(object sender, RoutedEventArgs e)
-        {
+            
             string sql3;
             TC1 = new DataTable();
             string st = "";
@@ -99,18 +76,62 @@ namespace YP02_01
                 else
                     Koef1 = Koef1 + Koef2[i];
             }
-            sql3 = "UPDATE TC SET Status='" + st + "',CountPavil=" + NumOfPav_.Text + ",City='" + City_.Text + "',Price=" + PriceBuild_.Text + " ,Koef=" + Koef1 + " ,Stages=" + Floor_.Text + " WHERE Name='" + TC.TCName + "';";
+            sql3 = "INSERT INTO TC(Name,Status,CountPavil,City,Price,Koef,Stages) VALUES('" + Name_.Text + "','" + Status.SelectedItem.ToString() + "'," + NumOfPav_.Text+ " ,'" + City_.Text + "' ," + PriceBuild_.Text + "," + Koef_.Text + " ," + Floor_.Text + " );";
             connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(sql3, connection);
             connection.Open();
             int num = command.ExecuteNonQuery();
             if (num != 0)
             {
-                MessageBox.Show("Торговый центр успешно редактирован");
+                MessageBox.Show("Торговый центр успешно сохранён");
                 TC.TCName = Name_.Text;
+                clic_ = true;
+
             }
             else
-                MessageBox.Show("Ошибка редактирования");
+                MessageBox.Show("Ошибка сохранения");
         }
-    }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            clic_ = false; ;
+            string sql;
+            SqlConnection connection = null;
+            STC = new DataTable();
+            sql = "SELECT DISTINCT Status from TC ;";
+            connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+            connection.Open();
+
+            adapter.Fill(STC);
+            for (int i = 0; i < STC.Rows.Count; i++)
+            {
+                Status.Items.Add(STC.Rows[i]["Status"].ToString());
+            }
+            connection.Close();
+        }
+
+        private void AddPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            if (clic_)
+            {
+                string sql3;
+                TC_ = new DataTable();
+                SqlConnection connection = null;
+                //bool id = true;
+                connection = new SqlConnection(connectionString);
+                connection.Open();
+                sql3 = "UPDATE TC SET Image =(SELECT * FROM OPENROWSET(BULK N'" + PathP.Text+ "', SINGLE_BLOB) AS image) WHERE Name = '" + TC.TCName + "';";
+                SqlCommand command3 = new SqlCommand(sql3, connection);
+                int num2 = command3.ExecuteNonQuery();
+                if (num2 != 0)
+                {
+                    MessageBox.Show("Фотография успешно загружена");
+                }
+                else MessageBox.Show("Ошибка: Неправильно указан путь");
+
+            }
+        }
+        }
+    
 }
