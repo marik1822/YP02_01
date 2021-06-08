@@ -38,10 +38,5 @@ namespace YP02_01
         {
             frameM.Content = new RedactEmpl();
         }
-
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-           // frameM.Content = new AddEmpl();
-        }
     }
 }

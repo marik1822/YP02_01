@@ -16,7 +16,6 @@
         <Menu Grid.Row="0" VerticalAlignment="Top" Background="#B2F0F0F0">
             <MenuItem Name="Main" Header="ИНТЕРФЕЙС АДМИНИСТРАТОРА" Foreground="#FF37474F" Height="60" FontFamily="Arial" FontSize="14" Cursor="Hand" Click="Main_Click"  />
             <MenuItem Name="Redact"  Header="РЕДАКТИРОВАНИЕ ПОЛЬЗОВАТЕЛЕЙ" Foreground="#FF37474F" FontFamily="Arial" FontSize="14" Cursor="Hand" Click="Redact_Click" />
-            <MenuItem Name="Add"  Header="СОЗДАНИЕ ПОЛЬЗОВАТЕЛЯ" Foreground="#FF37474F" FontFamily="Arial" FontSize="14" Cursor="Hand" Click="Add_Click"  />
         </Menu>
         <Frame Name="frameM" NavigationUIVisibility="Hidden" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Width="1912"/>
         <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="1777,17,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial" Click="Exit_Click" Cursor="Hand"/>

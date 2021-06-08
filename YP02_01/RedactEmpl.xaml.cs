@@ -63,5 +63,10 @@ namespace YP02_01
             ID_ = Employers.Rows[empl_.SelectedIndex]["ID"].ToString().Trim();
             NavigationService.Navigate(new UpdateEmpl());
         }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

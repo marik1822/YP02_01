@@ -29,5 +29,6 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Name="Add" Content="Добавить пользователя" HorizontalAlignment="Left" Margin="1665,934,0,0" VerticalAlignment="Top" Width="166" FontFamily="Arial"  Cursor="Hand" Click="Add_Click" />
     </Grid>
 </Page>
