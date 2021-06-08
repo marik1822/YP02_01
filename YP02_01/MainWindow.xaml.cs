@@ -95,7 +95,8 @@ namespace YP02_01
                     else
                         if (Role == "Администратор")
                     {
-                        //this.Close();
+                        new AdminMenu().Show();
+                        this.Close();
                     }
                     return;
                 }

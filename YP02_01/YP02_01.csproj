@@ -62,11 +62,17 @@
     <Compile Include="AddTC.xaml.cs">
       <DependentUpon>AddTC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminMenu.xaml.cs">
+      <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pavilion.xaml.cs">
       <DependentUpon>Pavilion.xaml</DependentUpon>
     </Compile>
     <Compile Include="PavilionUpdate.xaml.cs">
       <DependentUpon>PavilionUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RedactEmpl.xaml.cs">
+      <DependentUpon>RedactEmpl.xaml</DependentUpon>
     </Compile>
     <Compile Include="TC.xaml.cs">
       <DependentUpon>TC.xaml</DependentUpon>
@@ -74,11 +80,18 @@
     <Compile Include="TCUpdate.xaml.cs">
       <DependentUpon>TCUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateEmpl.xaml.cs">
+      <DependentUpon>UpdateEmpl.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddPavil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddTC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,11 +119,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RedactEmpl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TCUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateEmpl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
