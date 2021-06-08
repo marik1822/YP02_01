@@ -73,7 +73,9 @@
         <Label  Foreground="#FF37474F" Content="Количество павильонов:" HorizontalAlignment="Left" Margin="97,362,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1" Grid.Column="1"/>
         <TextBox Name="NumOfPav_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="249,363,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="348" Grid.Row="1"/>
         <Button Name="Add"  Content="Добавить" HorizontalAlignment="Left" Margin="487,10,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial"  Cursor="Hand" IsCancel="True"  Grid.Column="1" Grid.Row="2" Click="Add_Click"  />
-        <Button Name="AddPhoto"  Content="Загрузить фото" HorizontalAlignment="Left" Margin="240,192,0,0" VerticalAlignment="Top" Width="178" FontFamily="Arial"  Cursor="Hand" IsCancel="True" Grid.Row="1" Click="AddPhoto_Click"   />
+        <Button Name="AddPhoto"  Content="Загрузить фото" HorizontalAlignment="Left" Margin="240,264,0,0" VerticalAlignment="Top" Width="178" FontFamily="Arial"  Cursor="Hand" IsCancel="True" Grid.Row="1" Click="AddPhoto_Click"   />
+        <TextBox Name="PathP"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="185,182,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="359" Grid.Row="1"/>
+        <Label  Foreground="#FF37474F" Content="Путь:" HorizontalAlignment="Left" Margin="124,181,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1"/>
 
     </Grid>
 </Page>

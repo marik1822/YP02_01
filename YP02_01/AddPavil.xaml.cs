@@ -67,32 +67,8 @@ namespace YP02_01
         {
             string sql3;
             Pavilions = new DataTable();
-            string st = "";
-            switch (Status.SelectedIndex)
-            {
-                case 0:
-                    st = "Арендован";
-                    break;
-                case 1:
-                    st = "Забронировано";
-                    break;
-                case 2:
-                    st = "Свободен";
-                    break;
-            }
             SqlConnection connection = null;
-            string Koef1 = "";
-            string Koef2 = Koef_.Text.ToString();
-            for (int i = 0; i != Koef2.Length; i++)
-            {
-                if (Koef2[i] == ',')
-                {
-                    Koef1 = Koef1 + ".";
-                }
-                else
-                    Koef1 = Koef1 + Koef2[i];
-            }
-            sql3 = "INSERT INTO Pavils SET Name='" + Name_ + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage='" + Stage_ + "', Status='" + st + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef1 + ";";
+            sql3 = "INSERT INTO Pavils SET Name='" + Name_.Text + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + ";";
             connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(sql3, connection);
             connection.Open();
