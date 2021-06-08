@@ -1,0 +1,49 @@
+﻿<Page x:Class="YP02_01.SelectPavil"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YP02_01"
+      mc:Ignorable="d" 
+      d:DesignHeight="1016" d:DesignWidth="1912"
+      Background="White"
+      Title="SelectPavil" Loaded="Page_Loaded">
+
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Name="pavilDG" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top" Width="1912">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Статус ТЦ" Binding="{Binding Status}"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding Name }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Номер этажа" Binding="{Binding Stage }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Номер павильона" Binding="{Binding NumberOfPavil }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Площадь" Binding="{Binding Area }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Статус Павильона" Binding="{Binding StatusPavil }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Коэффициент добавочной стоимости" Binding="{Binding Koef }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Стоимость кв.м." Binding="{Binding PriceForMetr }"></DataGridTextColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="SelectArend" FontFamily="Arial" Foreground="#FF37474F" Content="Арендовать" Cursor="Hand" Click="SelectArend_Click" ></Button>
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="SelectBron" FontFamily="Arial" Foreground="#FF37474F" Content="Забронировать" Cursor="Hand" Click="SelectBron_Click" ></Button>
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox  Name="Name_"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="24" Margin="108,920,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="286"/>
+        <TextBox Name="Phone_"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="24" Margin="532,920,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281"/>
+        <TextBox Name="Adres_"   FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="24" Margin="987,920,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="423"/>
+        <Label  Foreground="#FF37474F" Content="Название:" HorizontalAlignment="Left" Margin="36,920,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Label  Foreground="#FF37474F" Content="Адрес:" HorizontalAlignment="Left" Margin="934,920,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Label  Foreground="#FF37474F" Content="Телефон:" HorizontalAlignment="Left" Margin="464,920,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
+        <Label Content="Информация о арендаторе:" HorizontalAlignment="Left" Margin="900,860,0,0" VerticalAlignment="Top" Foreground="#FF37474F" FontFamily="Arial" FontWeight="Bold"/>
+    </Grid>
+</Page>

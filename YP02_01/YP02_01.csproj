@@ -74,6 +74,12 @@
     <Compile Include="RedactEmpl.xaml.cs">
       <DependentUpon>RedactEmpl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelectPavil.xaml.cs">
+      <DependentUpon>SelectPavil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectTC.xaml.cs">
+      <DependentUpon>SelectTC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TC.xaml.cs">
       <DependentUpon>TC.xaml</DependentUpon>
     </Compile>
@@ -120,6 +126,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RedactEmpl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectPavil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectTC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

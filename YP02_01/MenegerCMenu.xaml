@@ -11,8 +11,8 @@
     <Grid>
         <Menu Height="51" VerticalAlignment="Top" Background="#B2F0F0F0">
             <MenuItem Name="Main" Header="      СПИСОК ТЦ" Foreground="#FF37474F" Height="53" Width="150" FontFamily="Arial" FontSize="14" Cursor="Hand" Click="Main_Click"  />
-            <MenuItem Header="  СПИСОК ПАВИЛЬОНОВ" Foreground="#FF37474F" Width="204" FontFamily="Arial" FontSize="14" Cursor="Hand" Click="MenuItem_Click" />
-            <MenuItem Header="  АРЕНДА ПАВИЛЬОНА" Foreground="#FF37474F" Width="204" FontFamily="Arial" FontSize="14" Cursor="Hand"  />
+            <MenuItem Header="    СПИСОК ПАВИЛЬОНОВ" Foreground="#FF37474F" Width="204" FontFamily="Arial" FontSize="14" Cursor="Hand" Click="MenuItem_Click" />
+            <MenuItem Name="ArPavil" Header="      АРЕНДА ПАВИЛЬОНА" Foreground="#FF37474F" Width="204" FontFamily="Arial" FontSize="14" Cursor="Hand" Click="ArPavil_Click"   />
         </Menu>
         <Frame Name="frameM" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="1016" Margin="0,56,0,0" VerticalAlignment="Top" Width="1912"/>
         <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="1777,17,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial" Click="Exit_Click" Cursor="Hand"/>

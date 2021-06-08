@@ -38,5 +38,10 @@ namespace YP02_01
         {
             frameM.Content = new Pavilion();
         }
+
+        private void ArPavil_Click(object sender, RoutedEventArgs e)
+        {
+            frameM.Content = new SelectTC();
+        }
     }
 }

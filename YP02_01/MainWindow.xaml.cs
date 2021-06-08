@@ -28,6 +28,7 @@ namespace YP02_01
         DataTable Employee;
         public int Logchick { get; set; }
         public string Role { get; set; }
+        public string ID { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -81,6 +82,7 @@ namespace YP02_01
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
+                    ID = reader[0].ToString();
                     Role = reader[6].ToString();
                     if (Role == "Менеджер А")
                     {
