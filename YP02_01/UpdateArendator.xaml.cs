@@ -63,10 +63,10 @@ namespace YP02_01
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            ArendatTable = ExecuteSql("SELECT * FROM Arendatory WHERE ID='" + RedactEmpl.ID_ + "'");
-            Name_.Text = ArendatTable.Rows[0]["Lname"].ToString();
-            Phone_.Text = ArendatTable.Rows[0]["Fname"].ToString();
-            Adress_.Text = ArendatTable.Rows[0]["Sname"].ToString();
+            ArendatTable = ExecuteSql("SELECT * FROM Arendatory WHERE ID='" + Arendators.ID_Arendator + "'");
+            Name_.Text = ArendatTable.Rows[0]["Name"].ToString();
+            Phone_.Text = ArendatTable.Rows[0]["Phone"].ToString();
+            Adress_.Text = ArendatTable.Rows[0]["Address"].ToString();
         }
         private void Add_Click(object sender, RoutedEventArgs e)
         {

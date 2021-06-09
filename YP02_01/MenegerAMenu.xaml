@@ -15,6 +15,8 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" VerticalAlignment="Top" Background="#B2F0F0F0">
             <MenuItem Name="Arenda"  Header="СПИСОК АРЕНДАТОРОВ" Foreground="#FF37474F" FontFamily="Arial" FontSize="14" Height="60" Cursor="Hand" Click="Arenda_Click" />
+            <MenuItem Name="Statistik"  Header="СТАТИСТИКА ТЦ" Foreground="#FF37474F" FontFamily="Arial" FontSize="14" Height="60" Cursor="Hand" Width="139" Click="Statistik_Click"  />
+            <MenuItem Name="Okyp"  Header="ОКУПАЕМОСТЬ ТЦ" Foreground="#FF37474F" FontFamily="Arial" FontSize="14" Height="60" Cursor="Hand" Width="160" Click="Okyp_Click" />
         </Menu>
         <Frame Name="frameM" NavigationUIVisibility="Hidden" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Width="1912"/>
         <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="1777,17,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial" Click="Exit_Click" Cursor="Hand"/>

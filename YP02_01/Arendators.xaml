@@ -11,13 +11,20 @@
     <Grid>
         <DataGrid    AutoGenerateColumns="False" IsReadOnly="True"  Name="arendat_" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top" Width="1912">
             <DataGrid.Columns>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название компание" Binding="{Binding Name }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название компании" Binding="{Binding Name }"></DataGridTextColumn>
                 <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Номер телефона" Binding="{Binding Phone }"></DataGridTextColumn>
                 <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Адрес" Binding="{Binding Address }"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Name="Izm" FontFamily="Arial" Foreground="#FF37474F" Content=" РЕДАКТИРОВАТЬ "  Cursor="Hand" Click="Izm_Click"  ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="SpisArend" FontFamily="Arial" Foreground="#FF37474F" Content=" СПИСОК АРЕНД "  Cursor="Hand" Click="SpisArend_Click"   ></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

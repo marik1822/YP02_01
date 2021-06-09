@@ -35,5 +35,16 @@ namespace YP02_01
 
             frameM.Content = new Arendators();
         }
+
+        private void Statistik_Click(object sender, RoutedEventArgs e)
+        {
+            frameM.Content = new StatisticsTC();
+        }
+
+        private void Okyp_Click(object sender, RoutedEventArgs e)
+        {
+            frameM.Content = new PaybackTC();
+
+        }
     }
 }
