@@ -29,7 +29,8 @@ namespace YP02_01
         SqlDataAdapter adapter;
         static DataTable Pavilions;
         static DataTable Stages;
-        DataTable Areas;
+        static DataTable Arend;
+        DataTable Arends;
         public SelectPavil()
         {
             InitializeComponent();
@@ -78,23 +79,53 @@ namespace YP02_01
             {
                 MessageBox.Show("Вы не ввели адрес");
             } else
+
             if ((Name_.Text.Trim() != "") && (Phone_.Text.Trim() != "") && (Adres_.Text.Trim() != "")) {
-                Pavilion.PavilNum = Pavilions.Rows[pavilDG.SelectedIndex]["NumberOfPavil"].ToString().Trim(); ;
-                Pavilion.PavilStage = Pavilions.Rows[pavilDG.SelectedIndex]["Stage"].ToString().Trim(); ;
-                Pavilion.PavilName = TC.TCName;
-                string sql2 = "";
-                SqlConnection connection = null;
-                connection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand(sql2, connection);
-                connection.Open();
-                int num = command.ExecuteNonQuery();
-                if (num != 0)
+                string sql;
+                string sql0;
+                string id;
+                Arends = new DataTable();
+                SqlConnection connection0 = null;
+                sql0 = "SELECT top(1) id from Arenda Order by id desc;";
+                SqlCommand command0 = new SqlCommand(sql0, connection0);
+                SqlDataReader reader0 = command0.ExecuteReader();
+                while (reader0.Read())
                 {
-                    MessageBox.Show("Павильон успешно арендован");
-                    // TC.TCName = Name_.Text;
+                    id = reader0[0].ToString();
+                    int id1 = int.Parse(id) + 1;
+                    id = id1.ToString();
                 }
-                else
-                    MessageBox.Show("Ошибка арендации");
+                reader0.Close();
+                SqlConnection connection = null;
+                sql = "SELECT * FROM Arendatory WHERE Name='"+Name_.Text+"' AND Phone='"+Phone_.Text+"' AND Address='"+Adres_.Text+"'";
+                connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(sql, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string id_arendatory = reader[0].ToString();
+                    Pavilion.PavilNum = Pavilions.Rows[pavilDG.SelectedIndex]["NumberOfPavil"].ToString().Trim(); ;
+                    Pavilion.PavilStage = Pavilions.Rows[pavilDG.SelectedIndex]["Stage"].ToString().Trim(); ;
+                    Pavilion.PavilName = TC.TCName;
+                    string sql2 = "";//Хранимая процедура
+                    //SqlConnection connection = null;
+                    connection = new SqlConnection(connectionString);
+                    SqlCommand command1 = new SqlCommand(sql2, connection);
+                    connection.Open();
+                    int num = command1.ExecuteNonQuery();
+                    if (num != 0)
+                    {
+                        MessageBox.Show("Павильон успешно арендован");
+                        // TC.TCName = Name_.Text;
+                    }
+                    else
+                        MessageBox.Show("Ошибка арендации");
+                    return;
+                }
+                reader.Close();
+                MessageBox.Show("Арендатор не найден");
+                
             }
         }
 
