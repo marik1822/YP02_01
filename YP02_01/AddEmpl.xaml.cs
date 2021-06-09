@@ -154,6 +154,16 @@ namespace YP02_01
 
             }
         }
+
+        private void Gender_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
 }

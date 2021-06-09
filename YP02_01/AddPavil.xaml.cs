@@ -28,6 +28,7 @@ namespace YP02_01
         
         static DataTable Pavil;
         static DataTable Pavilions;
+        static DataTable TCname;
 
         public AddPavil()
         {
@@ -48,17 +49,29 @@ namespace YP02_01
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             string sql;
+            string sql1;
             SqlConnection connection = null;
             Pavil = new DataTable();
-            sql = "SELECT DISTINCT Status from Pavils where Status!='Удален'; ;";
+            sql = "SELECT DISTINCT Status from Pavils where Status!='Удален';";
             connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
             connection.Open();
-
             adapter.Fill(Pavil);
             for (int i = 0; i < Pavil.Rows.Count; i++)
             {
                 Status.Items.Add(Pavil.Rows[i]["Status"].ToString());
+            }
+
+            connection = null;
+            TCname = new DataTable();
+            sql1 = "SELECT DISTINCT Name from TC ;";
+            connection = new SqlConnection(connectionString);
+            SqlDataAdapter adapter1 = new SqlDataAdapter(sql1, connection);
+            connection.Open();
+            adapter1.Fill(TCname);
+            for (int i = 0; i < TCname.Rows.Count; i++)
+            {
+                NameTC.Items.Add(TCname.Rows[i]["Name"].ToString());
             }
             connection.Close();
         }
@@ -68,7 +81,7 @@ namespace YP02_01
             string sql3;
             Pavilions = new DataTable();
             SqlConnection connection = null;
-            sql3 = "INSERT INTO Pavils SET Name='" + Name_.Text + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + ";";
+            sql3 = "INSERT INTO Pavils SET Name='" + NameTC.SelectedItem.ToString() + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + " ;";
             connection = new SqlConnection(connectionString);
             SqlCommand command = new SqlCommand(sql3, connection);
             connection.Open();
