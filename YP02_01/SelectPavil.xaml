@@ -39,11 +39,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <TextBox  Name="Name_"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="24" Margin="108,920,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="286"/>
-        <TextBox Name="Phone_"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="24" Margin="532,920,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="281"/>
-        <TextBox Name="Adres_"   FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="24" Margin="987,920,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="423"/>
         <Label  Foreground="#FF37474F" Content="Название:" HorizontalAlignment="Left" Margin="36,920,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
-        <Label  Foreground="#FF37474F" Content="Адрес:" HorizontalAlignment="Left" Margin="934,920,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
-        <Label  Foreground="#FF37474F" Content="Телефон:" HorizontalAlignment="Left" Margin="464,920,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
         <Label Content="Информация о арендаторе:" HorizontalAlignment="Left" Margin="900,860,0,0" VerticalAlignment="Top" Foreground="#FF37474F" FontFamily="Arial" FontWeight="Bold"/>
+        <DatePicker Name="DateEnd" HorizontalAlignment="Left" Margin="818,920,0,0" VerticalAlignment="Top" Width="184"/>
+        <Label  Foreground="#FF37474F" Content="Дата окончанияя аренды:" HorizontalAlignment="Left" Margin="645,920,0,0" VerticalAlignment="Top" FontFamily="Arial"/>
     </Grid>
 </Page>

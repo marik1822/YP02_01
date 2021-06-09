@@ -63,31 +63,27 @@ namespace YP02_01
 
         private void SelectArend_Click(object sender, RoutedEventArgs e)
         {
-            if ((Name_.Text.Trim() == "") && (Phone_.Text.Trim() == "") && (Adres_.Text.Trim() == ""))
+            if (Name_.Text.Trim() == "")
             {
                 MessageBox.Show("Вы не ввели информацию о арендаторе");
             } else
-            if (Name_.Text.Trim() == "")
-            {
-                MessageBox.Show("Вы не ввели название организации");
-            } else
-            if (Phone_.Text.Trim() == "")
-            {
-                MessageBox.Show("Вы не ввели телефон");
-            } else
-            if (Adres_.Text.Trim() == "")
-            {
-                MessageBox.Show("Вы не ввели адрес");
-            } else
 
-            if ((Name_.Text.Trim() != "") && (Phone_.Text.Trim() != "") && (Adres_.Text.Trim() != "")) {
+            if (DateEnd.SelectedDate.Value.ToString() == "")
+            {
+                MessageBox.Show("Вы не выбрали дату");
+            }
+            if ((Name_.Text.Trim() != "")&&(DateEnd.SelectedDate.Value.ToString() != ""))  {
                 string sql;
                 string sql0;
-                string id;
+                string id="";
                 Arends = new DataTable();
-                SqlConnection connection0 = null;
+                //connection = new SqlConnection(connectionString);
+                SqlConnection connection = null;
+                connection = new SqlConnection(connectionString);
+                //connection.Open();
                 sql0 = "SELECT top(1) id from Arenda Order by id desc;";
-                SqlCommand command0 = new SqlCommand(sql0, connection0);
+                SqlCommand command0 = new SqlCommand(sql0, connection);
+                connection.Open();
                 SqlDataReader reader0 = command0.ExecuteReader();
                 while (reader0.Read())
                 {
@@ -96,8 +92,9 @@ namespace YP02_01
                     id = id1.ToString();
                 }
                 reader0.Close();
-                SqlConnection connection = null;
-                sql = "SELECT * FROM Arendatory WHERE Name='"+Name_.Text+"' AND Phone='"+Phone_.Text+"' AND Address='"+Adres_.Text+"'";
+              //  connection.Close();
+                connection = null;
+                sql = "SELECT * FROM Arendatory WHERE Name='"+Name_.Text+"'";
                 connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(sql, connection);
                 connection.Open();
@@ -108,7 +105,8 @@ namespace YP02_01
                     Pavilion.PavilNum = Pavilions.Rows[pavilDG.SelectedIndex]["NumberOfPavil"].ToString().Trim(); ;
                     Pavilion.PavilStage = Pavilions.Rows[pavilDG.SelectedIndex]["Stage"].ToString().Trim(); ;
                     Pavilion.PavilName = TC.TCName;
-                    string sql2 = "";//Хранимая процедура
+                    //set dateformat ymd go
+                    string sql2 = " EXECUTE BronPavil @IdArenda = "+id+", @IdArendatory = "+id_arendatory+", @Name = '"+TC.TCName+"', @ID_EMP = "+MainWindow.ID+", @NumberOfPavil = '"+ Pavilion.PavilNum + "', @Status = 'Открыт', @Start_rent = '" + DateTime.Now.ToString()+"', @Finisth_rent = '"+DateEnd.Text+ " 00:00:00" + "',@StatusPavil='Арендован';";
                     //SqlConnection connection = null;
                     connection = new SqlConnection(connectionString);
                     SqlCommand command1 = new SqlCommand(sql2, connection);
@@ -131,45 +129,70 @@ namespace YP02_01
 
         private void SelectBron_Click(object sender, RoutedEventArgs e)
         {
-            if ((Name_.Text.Trim() == "") && (Phone_.Text.Trim() == "") && (Adres_.Text.Trim() == ""))
+            if (Name_.Text.Trim() == "")
             {
                 MessageBox.Show("Вы не ввели информацию о арендаторе");
             }
             else
-           if (Name_.Text.Trim() == "")
+
+            if (DateEnd.SelectedDate.Value.ToString() == "")
             {
-                MessageBox.Show("Вы не ввели название организации");
+                MessageBox.Show("Вы не выбрали дату");
             }
-            else
-           if (Phone_.Text.Trim() == "")
+            if ((Name_.Text.Trim() != "") && (DateEnd.SelectedDate.Value.ToString() != ""))
             {
-                MessageBox.Show("Вы не ввели телефон");
-            }
-            else
-           if (Adres_.Text.Trim() == "")
-            {
-                MessageBox.Show("Вы не ввели адрес");
-            }
-            else
-            if ((Name_.Text.Trim() != "") && (Phone_.Text.Trim() != "") && (Adres_.Text.Trim() != ""))
-                {
-                Pavilion.PavilNum = Pavilions.Rows[pavilDG.SelectedIndex]["NumberOfPavil"].ToString().Trim(); ;
-                Pavilion.PavilStage = Pavilions.Rows[pavilDG.SelectedIndex]["Stage"].ToString().Trim(); ;
-                Pavilion.PavilName = TC.TCName;
-                string sql3 = "";
+                string sql;
+                string sql0;
+                string id = "";
+                Arends = new DataTable();
+                //connection = new SqlConnection(connectionString);
                 SqlConnection connection = null;
                 connection = new SqlConnection(connectionString);
-                SqlCommand command = new SqlCommand(sql3, connection);
+                //connection.Open();
+                sql0 = "SELECT top(1) id from Arenda Order by id desc;";
+                SqlCommand command0 = new SqlCommand(sql0, connection);
                 connection.Open();
-                int num = command.ExecuteNonQuery();
-                if (num != 0)
+                SqlDataReader reader0 = command0.ExecuteReader();
+                while (reader0.Read())
                 {
-                    MessageBox.Show("Павильон успешно забронирован");
-                    //TC.TCName = Name_.Text;
+                    id = reader0[0].ToString();
+                    int id1 = int.Parse(id) + 1;
+                    id = id1.ToString();
                 }
-                else
-                    MessageBox.Show("Ошибка бронирования");
+                reader0.Close();
+                //  connection.Close();
+                connection = null;
+                sql = "SELECT * FROM Arendatory WHERE Name='" + Name_.Text + "'";
+                connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(sql, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string id_arendatory = reader[0].ToString();
+                    Pavilion.PavilNum = Pavilions.Rows[pavilDG.SelectedIndex]["NumberOfPavil"].ToString().Trim(); ;
+                    Pavilion.PavilStage = Pavilions.Rows[pavilDG.SelectedIndex]["Stage"].ToString().Trim(); ;
+                    Pavilion.PavilName = TC.TCName;
+                    //set dateformat ymd go
+                    string sql2 = " EXECUTE BronPavil @IdArenda = " + id + ", @IdArendatory = " + id_arendatory + ", @Name = '" + TC.TCName + "', @ID_EMP = " + MainWindow.ID + ", @NumberOfPavil = '" + Pavilion.PavilNum + "', @Status = 'Ожидание', @Start_rent = '" + DateTime.Now.ToString() + "', @Finisth_rent = '" + DateEnd.Text + " 00:00:00" + "',@StatusPavil='Забронировано';";
+                    //SqlConnection connection = null;
+                    connection = new SqlConnection(connectionString);
+                    SqlCommand command1 = new SqlCommand(sql2, connection);
+                    connection.Open();
+                    int num = command1.ExecuteNonQuery();
+                    if (num != 0)
+                    {
+                        MessageBox.Show("Павильон успешно арендован");
+                        // TC.TCName = Name_.Text;
+                    }
+                    else
+                        MessageBox.Show("Ошибка арендации");
+                    return;
                 }
+                reader.Close();
+                MessageBox.Show("Арендатор не найден");
+
+            }
         }
     }
 }
