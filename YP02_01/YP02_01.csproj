@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddEmpl.xaml.cs">
+      <DependentUpon>AddEmpl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddPavil.xaml.cs">
       <DependentUpon>AddPavil.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
     <Compile Include="UpdateEmpl.xaml.cs">
       <DependentUpon>UpdateEmpl.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddEmpl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddPavil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
