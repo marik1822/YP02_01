@@ -182,11 +182,11 @@ namespace YP02_01
                     int num = command1.ExecuteNonQuery();
                     if (num != 0)
                     {
-                        MessageBox.Show("Павильон успешно арендован");
+                        MessageBox.Show("Павильон успешно забронирован");
                         // TC.TCName = Name_.Text;
                     }
                     else
-                        MessageBox.Show("Ошибка арендации");
+                        MessageBox.Show("Ошибка бронирования");
                     return;
                 }
                 reader.Close();
