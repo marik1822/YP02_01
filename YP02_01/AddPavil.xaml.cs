@@ -78,15 +78,11 @@ namespace YP02_01
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if ((Name_.Text == "") && (Stage_.Text == "") && (NumberOfPavil_.Text == "") && (Area_.Text == "") && (Koef_.Text == "") && (Price_.Text == ""))
+            if ( (Stage_.Text == "") && (NumberOfPavil_.Text == "") && (Area_.Text == "") && (Koef_.Text == "") && (Price_.Text == ""))
             {
                 MessageBox.Show("Вы ничего не ввели");
             }
-            else
-            if (Name_.Text == "")
-            {
-                MessageBox.Show("Вы не ввели название ТЦ");
-            }
+           
             else
             if (Stage_.Text == "")
             {
@@ -113,12 +109,12 @@ namespace YP02_01
                 MessageBox.Show("Вы не ввели стоимость");
             }
             else
-            if ((Name_.Text != "") && (Stage_.Text != "") && (NumberOfPavil_.Text != "") && (Area_.Text != "") && (Koef_.Text != "") && (Price_.Text != ""))
+            if ( (Stage_.Text != "") && (NumberOfPavil_.Text != "") && (Area_.Text != "") && (Koef_.Text != "") && (Price_.Text != ""))
             {
                 string sql3;
                 Pavilions = new DataTable();
                 SqlConnection connection = null;
-                sql3 = "INSERT INTO Pavils SET Name='" + Name_.Text + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + ";";
+                sql3 = "INSERT INTO Pavils SET Name='" + NameTC.SelectedItem.ToString() + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + ";";
                 connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(sql3, connection);
                 connection.Open();
