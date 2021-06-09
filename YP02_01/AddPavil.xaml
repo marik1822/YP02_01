@@ -21,7 +21,6 @@
         </Grid.ColumnDefinitions>
 
         <Label  Foreground="#FF37474F" Content="Название ТЦ:" HorizontalAlignment="Left" Margin="97,109,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Column="1"/>
-        <TextBox Name="Name_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="201,109,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="416"/>
         <Label  Foreground="#FF37474F" Content="Номер этажа:" HorizontalAlignment="Left" Margin="97,25,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="0.442,2.542"/>
         <TextBox Name="Stage_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="234,26,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="348" Grid.Row="1"/>
         <Label  Foreground="#FF37474F" Content="Номер павильона: " HorizontalAlignment="Left" Margin="97,88,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1" Grid.Column="1"/>
@@ -36,5 +35,6 @@
         <TextBox Name="Price_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="234,358,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="321" Grid.Row="1"/>
 
         <Button Name="Add"  Content="Добавить" HorizontalAlignment="Left" Margin="472,10,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial"  Cursor="Hand" IsCancel="True"  Grid.Column="1" Grid.Row="2" Click="Add_Click"  />
+        <ComboBox x:Name="NameTC" Foreground="#FF37474F" FontFamily="Arial" HorizontalAlignment="Left" Margin="215,113,0,0"  VerticalAlignment="Top" Width="415" Grid.Column="1" />
     </Grid>
 </Page>
