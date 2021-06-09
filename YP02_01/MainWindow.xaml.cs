@@ -28,7 +28,7 @@ namespace YP02_01
         DataTable Employee;
         public int Logchick { get; set; }
         public string Role { get; set; }
-        public string ID { get; set; }
+        public static string ID { get; set; }
         public MainWindow()
         {
             InitializeComponent();

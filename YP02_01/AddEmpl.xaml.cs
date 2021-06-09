@@ -75,6 +75,7 @@ namespace YP02_01
             SqlConnection connection0 = null;
             sql0 = "SELECT top(1) ID from Employers Order by ID desc;";
             SqlCommand command0 = new SqlCommand(sql0, connection0);
+            connection0.Open();
             SqlDataReader reader = command0.ExecuteReader();
             while (reader.Read())
             {
@@ -83,6 +84,7 @@ namespace YP02_01
                 id = id1.ToString();
             }
             reader.Close();
+            connection0.Close();
 
             SqlConnection connection = null; 
             sql3 = "INSERT INTO Employers ID = '"+ id +"'Lname = '" + Lname_.Text + "', Fname= '" + Fname_.Text + "', Sname= '" + Sname_.Text + "', Login= '" + Login_.Text + "', Pass= '" + Pass_.Text + "', Role= '" + rl + "', Phone= '" + Phone_.Text + "', Gender= '" + gd + "' WHERE ID ='" + RedactEmpl.ID_ + "';";
@@ -151,15 +153,6 @@ namespace YP02_01
                 else MessageBox.Show("Ошибка: Неправильно указан путь");
 
             }
-        }
-        private void Gender_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 
