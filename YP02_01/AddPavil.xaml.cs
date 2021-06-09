@@ -65,20 +65,58 @@ namespace YP02_01
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            string sql3;
-            Pavilions = new DataTable();
-            SqlConnection connection = null;
-            sql3 = "INSERT INTO Pavils SET Name='" + Name_.Text + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + ";";
-            connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(sql3, connection);
-            connection.Open();
-            int num = command.ExecuteNonQuery();
-            if (num != 0)
+            if ((Name_.Text == "") && (Stage_.Text == "") && (NumberOfPavil_.Text == "") && (Area_.Text == "") && (Koef_.Text == "") && (Price_.Text == ""))
             {
-                MessageBox.Show("Павильон успешно создан");
+                MessageBox.Show("Вы ничего не ввели");
             }
             else
-                MessageBox.Show("Ошибка создания");
+            if (Name_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели название ТЦ");
+            }
+            else
+            if (Stage_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели номер этажа");
+            }
+            else
+            if (NumberOfPavil_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели номер павильона");
+            }
+            else
+            if (Area_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели площадь");
+            }
+            else
+            if (Koef_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели коэфицент");
+            }
+            else
+            if (Price_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели стоимость");
+            }
+            else
+            if ((Name_.Text != "") && (Stage_.Text != "") && (NumberOfPavil_.Text != "") && (Area_.Text != "") && (Koef_.Text != "") && (Price_.Text != ""))
+            {
+                string sql3;
+                Pavilions = new DataTable();
+                SqlConnection connection = null;
+                sql3 = "INSERT INTO Pavils SET Name='" + Name_.Text + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + ";";
+                connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(sql3, connection);
+                connection.Open();
+                int num = command.ExecuteNonQuery();
+                if (num != 0)
+                {
+                    MessageBox.Show("Павильон успешно создан");
+                }
+                else
+                    MessageBox.Show("Ошибка создания");
+            }
         }
 
        

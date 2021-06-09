@@ -48,48 +48,82 @@ namespace YP02_01
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            
-            string sql3;
-            TC1 = new DataTable();
-            string st = "";
-            switch (Status.SelectedIndex)
+            if ((Name_.Text == "") && (Koef_.Text == "") && (PriceBuild_.Text == "") && (City_.Text == "") && (Floor_.Text == "") && (NumOfPav_.Text == ""))
             {
-                case 0:
-                    st = "План";
-                    break;
-                case 1:
-                    st = "Реализация";
-                    break;
-                case 2:
-                    st = "Строительсто";
-                    break;
-            }
-            SqlConnection connection = null;
-            string Koef1 = "";
-            string Koef2 = Koef_.Text.ToString();
-            for (int i = 0; i != Koef2.Length; i++)
+                MessageBox.Show("Вы ничего не ввели");
+            } else
+            if (Name_.Text == "")
             {
-                if (Koef2[i] == ',')
-                {
-                    Koef1 = Koef1 + ".";
-                }
-                else
-                    Koef1 = Koef1 + Koef2[i];
-            }
-            sql3 = "INSERT INTO TC(Name,Status,CountPavil,City,Price,Koef,Stages) VALUES('" + Name_.Text + "','" + Status.SelectedItem.ToString() + "'," + NumOfPav_.Text+ " ,'" + City_.Text + "' ," + PriceBuild_.Text + "," + Koef_.Text + " ," + Floor_.Text + " );";
-            connection = new SqlConnection(connectionString);
-            SqlCommand command = new SqlCommand(sql3, connection);
-            connection.Open();
-            int num = command.ExecuteNonQuery();
-            if (num != 0)
+                MessageBox.Show("Вы не ввели название");
+            } else
+            if (Koef_.Text == "")
             {
-                MessageBox.Show("Торговый центр успешно сохранён");
-                TC.TCName = Name_.Text;
-                clic_ = true;
-
+                MessageBox.Show("Вы не ввели коэфицент");
             }
             else
-                MessageBox.Show("Ошибка сохранения");
+            if (PriceBuild_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели стоимость");
+            }
+            else
+            if (City_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели город");
+            }
+            else
+            if (Floor_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели этаж");
+            }
+            else
+            if (NumOfPav_.Text == "")
+            {
+                MessageBox.Show("Вы не ввели номер павильона");
+            }
+            else
+            if ((Name_.Text != "") && (Koef_.Text != "") && (PriceBuild_.Text != "") && (City_.Text != "") && (Floor_.Text != "") && (NumOfPav_.Text != "")) {
+                string sql3;
+                TC1 = new DataTable();
+                string st = "";
+                switch (Status.SelectedIndex)
+                {
+                    case 0:
+                        st = "План";
+                        break;
+                    case 1:
+                        st = "Реализация";
+                        break;
+                    case 2:
+                        st = "Строительсто";
+                        break;
+                }
+                SqlConnection connection = null;
+                string Koef1 = "";
+                string Koef2 = Koef_.Text.ToString();
+                for (int i = 0; i != Koef2.Length; i++)
+                {
+                    if (Koef2[i] == ',')
+                    {
+                        Koef1 = Koef1 + ".";
+                    }
+                    else
+                        Koef1 = Koef1 + Koef2[i];
+                }
+                sql3 = "INSERT INTO TC(Name,Status,CountPavil,City,Price,Koef,Stages) VALUES('" + Name_.Text + "','" + Status.SelectedItem.ToString() + "'," + NumOfPav_.Text + " ,'" + City_.Text + "' ," + PriceBuild_.Text + "," + Koef_.Text + " ," + Floor_.Text + " );";
+                connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand(sql3, connection);
+                connection.Open();
+                int num = command.ExecuteNonQuery();
+                if (num != 0)
+                {
+                    MessageBox.Show("Торговый центр успешно сохранён");
+                    TC.TCName = Name_.Text;
+                    clic_ = true;
+
+                }
+                else
+                    MessageBox.Show("Ошибка сохранения");
+            }
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
