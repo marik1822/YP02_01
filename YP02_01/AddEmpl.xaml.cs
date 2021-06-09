@@ -25,8 +25,6 @@ namespace YP02_01
     {
         static string connectionString;
         SqlDataAdapter adapter;
-        static DataTable EmplTable;
-        static DataTable PhotoTable;
         static DataTable RoleTable;
         static DataTable GenderTable;
         static bool clic_;
@@ -50,7 +48,6 @@ namespace YP02_01
             string sql0;
             string id = null;
             string sql3;
-            EmplTable = new DataTable();
             string gd = "";
             switch (Gender.SelectedIndex)
             {
@@ -143,7 +140,6 @@ namespace YP02_01
             if (clic_)
             {
                 string sql3;
-                PhotoTable = new DataTable();
                 SqlConnection connection = null;
                 connection = new SqlConnection(connectionString);
                 connection.Open();
@@ -157,16 +153,6 @@ namespace YP02_01
                 else MessageBox.Show("Ошибка: Неправильно указан путь");
 
             }
-        }
-
-        private void Gender_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void Role_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 

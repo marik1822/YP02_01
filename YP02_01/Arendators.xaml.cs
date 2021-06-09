@@ -20,17 +20,16 @@ using System.Text.RegularExpressions;
 namespace YP02_01
 {
     /// <summary>
-    /// Логика взаимодействия для RedactEmpl.xaml
+    /// Логика взаимодействия для Arendators.xaml
     /// </summary>
-    public partial class RedactEmpl : Page
+    public partial class Arendators : Page
     {
         static string connectionString;
         SqlDataAdapter adapter;
-        static DataTable Employers;
+        static DataTable Arendatory;
 
-        public static string ID_ { get; set; }
-
-        public RedactEmpl()
+        public static string ID_Arendator { get; set; }
+        public Arendators()
         {
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
@@ -47,51 +46,29 @@ namespace YP02_01
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            string sql = "SELECT * from Employers;";
+            string sql = "SELECT * from Arendatory;";
             SqlConnection connection = null;
 
             connection = new SqlConnection(connectionString);
             adapter = new SqlDataAdapter(sql, connection);
             SqlCommandBuilder myCommandBuilder = new SqlCommandBuilder(adapter as SqlDataAdapter);
 
-            Employers = new DataTable();
-            adapter.Fill(Employers); //загрузка данных
-            empl_.ItemsSource = Employers.DefaultView; //привязка к DataGrid
+            Arendatory = new DataTable();
+            adapter.Fill(Arendatory); //загрузка данных
+            arendat_.ItemsSource = Arendatory.DefaultView; //привязка к DataGrid
         }
 
         private void Izm_Click(object sender, RoutedEventArgs e)
         {
-            ID_ = Employers.Rows[empl_.SelectedIndex]["ID"].ToString().Trim();
-            NavigationService.Navigate(new UpdateEmpl());
+            ID_Arendator = Arendatory.Rows[arendat_.SelectedIndex]["ID"].ToString().Trim();
+            NavigationService.Navigate(new UpdateArendator());
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEmpl());
+            NavigationService.Navigate(new AddArendator());
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
-        {
-
-            if (empl_.SelectedItem != null)
-            {
-                string idempl = Employers.Rows[empl_.SelectedIndex]["ID"].ToString().Trim();
-                string sql2 = "UPDATE Employers SET Role='Удален' WHERE ID='" + idempl + "'";
-                SqlConnection connection = null;
-
-                connection = new SqlConnection(connectionString);
-
-                SqlCommand command = new SqlCommand(sql2, connection);
-                connection.Open();
-                int num = command.ExecuteNonQuery();
-                if (num != 0)
-                {
-                    MessageBox.Show("Строка успешно удалена");
-                }
-                else MessageBox.Show("Ошибка удаления");
-            }
-            else MessageBox.Show("Вы не выбрали строку для удаления");
-        }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -104,17 +81,17 @@ namespace YP02_01
             else
             if (Search.Text != "")
             {
-                const string Pattern = @"^[А-Яа-яЁё\s]+$";
+                const string Pattern = @"^[A-Za-z\s]+$";
                 var search_ = Search.Text.Trim().ToLowerInvariant();
                 if (Regex.Match(search_, Pattern).Success)
                 {
-                    sql = " SELECT * FROM Employers where Lname= '" + search_ + "' ";
+                    sql = " SELECT * FROM Arendatory where Name= '" + search_ + "' ";
                     connection = new SqlConnection(connectionString);
                     adapter = new SqlDataAdapter(sql, connection);
                     SqlCommandBuilder myCommandBuilder = new SqlCommandBuilder(adapter as SqlDataAdapter);
-                    Employers = new DataTable();
-                    adapter.Fill(Employers); //загрузка данных
-                    empl_.ItemsSource = Employers.DefaultView;
+                    Arendatory = new DataTable();
+                    adapter.Fill(Arendatory); //загрузка данных
+                    arendat_.ItemsSource = Arendatory.DefaultView;
                 }
                 else
                     MessageBox.Show("Неверно введены значения");

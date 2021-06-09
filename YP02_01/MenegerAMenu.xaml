@@ -1,4 +1,4 @@
-﻿<Window x:Class="YP02_01.AdminMenu"
+﻿<Window x:Class="YP02_01.MenegerAMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         WindowStyle="None"
         WindowState="Maximized"
-        Title="AdminMenu" Height="1080" Width="1920">
+        Title="MenegerAMenu" Height="1080" Width="1920">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" VerticalAlignment="Top" Background="#B2F0F0F0">
-            <MenuItem Name="Redact"  Header="СПИСОК ПОЛЬЗОВАТЕЛЕЙ" Foreground="#FF37474F" FontFamily="Arial" FontSize="14" Height="60" Cursor="Hand" Click="Redact_Click" />
+            <MenuItem Name="Arenda"  Header="СПИСОК АРЕНДАТОРОВ" Foreground="#FF37474F" FontFamily="Arial" FontSize="14" Height="60" Cursor="Hand" Click="Arenda_Click" />
         </Menu>
         <Frame Name="frameM" NavigationUIVisibility="Hidden" HorizontalAlignment="Left"  Grid.Row="1" VerticalAlignment="Top" Width="1912"/>
         <Button x:Name="Exit" Content="Выход" HorizontalAlignment="Left" Margin="1777,17,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial" Click="Exit_Click" Cursor="Hand"/>

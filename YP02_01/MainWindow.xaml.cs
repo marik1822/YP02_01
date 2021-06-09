@@ -86,7 +86,8 @@ namespace YP02_01
                     Role = reader[6].ToString();
                     if (Role == "Менеджер А")
                     {
-                        //this.Close();
+                        new MenegerAMenu().Show();
+                        this.Close();
                     }
                     else
                         if (Role == "Менеджер С")

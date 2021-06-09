@@ -1,0 +1,34 @@
+﻿<Page x:Class="YP02_01.AddArendator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:YP02_01"
+      mc:Ignorable="d" 
+      d:DesignHeight="1020" d:DesignWidth="1920"
+      Title="AddArendator" Background="White">
+
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="157*"/>
+            <RowDefinition Height="133*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="681*" />
+            <ColumnDefinition Width="684"/>
+            <ColumnDefinition Width="547*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label  Foreground="#FF37474F" Content="Название Арендатора:" HorizontalAlignment="Left" Margin="105,43,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Column="1" Height="24" Width="143" Grid.Row="1"/>
+        <TextBox Name="Name_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="290,43,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="348" Grid.Row="1"/>
+        <Label  Foreground="#FF37474F" Content="Номер телефона:" HorizontalAlignment="Left" Margin="105,109,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="0.442,2.542" Height="24" Width="115"/>
+        <TextBox Name="Phone_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="290,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="348" Grid.Row="1"/>
+        <Label  Foreground="#FF37474F" Content="Адресс: " HorizontalAlignment="Left" Margin="105,172,0,0" VerticalAlignment="Top" FontFamily="Arial" Grid.Row="1" Grid.Column="1" Height="24" Width="69"/>
+        <TextBox Name="Adress_"  Grid.Column="1"  FontFamily="Arial" Foreground="#FF37474F" HorizontalAlignment="Left" Height="23" Margin="179,172,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="459" Grid.Row="1"/>
+
+        <Button Name="Add"  Content="Добавить Арендатора" HorizontalAlignment="Left" Margin="501,279,0,0" VerticalAlignment="Top" Width="110" FontFamily="Arial"  Cursor="Hand" IsCancel="True"  Grid.Column="1" Grid.Row="1" Click="Add_Click" Height="18"  />
+
+    </Grid>
+</Page>

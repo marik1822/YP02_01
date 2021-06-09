@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddArendator.xaml.cs">
+      <DependentUpon>AddArendator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddEmpl.xaml.cs">
       <DependentUpon>AddEmpl.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,12 @@
     </Compile>
     <Compile Include="AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Arendators.xaml.cs">
+      <DependentUpon>Arendators.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenegerAMenu.xaml.cs">
+      <DependentUpon>MenegerAMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pavilion.xaml.cs">
       <DependentUpon>Pavilion.xaml</DependentUpon>
@@ -89,9 +98,16 @@
     <Compile Include="TCUpdate.xaml.cs">
       <DependentUpon>TCUpdate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateArendator.xaml.cs">
+      <DependentUpon>UpdateArendator.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateEmpl.xaml.cs">
       <DependentUpon>UpdateEmpl.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddArendator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddEmpl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -108,6 +124,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Arendators.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +140,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenegerAMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MenegerCMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TCUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateArendator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

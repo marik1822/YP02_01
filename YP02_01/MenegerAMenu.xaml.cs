@@ -15,14 +15,14 @@ using System.Windows.Shapes;
 namespace YP02_01
 {
     /// <summary>
-    /// Логика взаимодействия для AdminMenu.xaml
+    /// Логика взаимодействия для MenegerAMenu.xaml
     /// </summary>
-    public partial class AdminMenu : Window
+    public partial class MenegerAMenu : Window
     {
-        public AdminMenu()
+        public MenegerAMenu()
         {
             InitializeComponent();
-            frameM.Content = new RedactEmpl();
+            frameM.Content = new Arendators();
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -30,9 +30,10 @@ namespace YP02_01
             Environment.Exit(0);
         }
 
-        private void Redact_Click(object sender, RoutedEventArgs e)
+        private void Arenda_Click(object sender, RoutedEventArgs e)
         {
-            frameM.Content = new RedactEmpl();
+
+            frameM.Content = new Arendators();
         }
     }
 }
