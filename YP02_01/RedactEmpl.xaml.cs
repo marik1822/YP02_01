@@ -52,7 +52,6 @@ namespace YP02_01
 
             connection = new SqlConnection(connectionString);
             adapter = new SqlDataAdapter(sql, connection);
-            SqlCommandBuilder myCommandBuilder = new SqlCommandBuilder(adapter as SqlDataAdapter);
 
             Employers = new DataTable();
             adapter.Fill(Employers); //загрузка данных
