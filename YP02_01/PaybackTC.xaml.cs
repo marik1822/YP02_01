@@ -63,7 +63,7 @@ namespace YP02_01
             }
             connection.Close();
         }
-
+        
         private void NameTC_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string sql = "SELECT Name , Price FROM TC WHERE Name='" + NameTC.SelectedItem.ToString() + "';";
@@ -111,28 +111,15 @@ namespace YP02_01
                 connection1.Close();
                 connection2 = new SqlConnection(connectionString);
                 connection2.Open();
-                using (SqlCommand cmd = new SqlCommand("spisfunc",connection2))
-                {
-                    adapter = new SqlDataAdapter(cmd);
-                    adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-                    adapter.SelectCommand.Parameters.Add(new SqlParameter("@peredfunc",SqlDbType.Float));
-                    adapter.SelectCommand.Parameters["@peredfunc"].Value = float.Parse(Result2);
-                    adapter.SelectCommand.Parameters.Add(new SqlParameter("@nameoftc", SqlDbType.NVarChar,50));
-                    adapter.SelectCommand.Parameters["@nameoftc"].Value = NameTC_;
-                    DataTable dv = new DataTable();
-                    adapter.Fill(dv);
-                    TC_.ItemsSource = dv.DefaultView;
-                    
-                    return;
-                }
-                    string sql2 = "EXECUTE spisfunc " + Result2 + ",'" + NameTC_ + "' ";
+                string sql2 = "EXECUTE spisfunc " + Result2 + ",'" + NameTC_ + "' ";
                 
-                //adapter = new SqlDataAdapter(sql2, connection2);
-                //connection2.Open();
-                //TCitog = new DataTable();
-                //adapter.Fill(TCitog); //загрузка данных 
-                //TC_.ItemsSource = TCitog.DefaultView; //привязка к DataGrid
-                //connection2.Close();
+
+                adapter = new SqlDataAdapter(sql2, connection2);
+
+                TCitog = new DataTable();
+                adapter.Fill(TCitog); //загрузка данных 
+                TC_.ItemsSource = TCitog.DefaultView; //привязка к DataGrid
+                connection2.Close(); 
                 return;
             }
             reader.Close();

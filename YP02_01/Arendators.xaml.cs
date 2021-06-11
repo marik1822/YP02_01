@@ -100,6 +100,7 @@ namespace YP02_01
 
         private void SpisArend_Click(object sender, RoutedEventArgs e)
         {
+            ID_Arendator = Arendatory.Rows[arendat_.SelectedIndex]["ID"].ToString().Trim();
             NavigationService.Navigate(new ListArend());
             
         }

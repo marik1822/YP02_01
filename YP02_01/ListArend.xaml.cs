@@ -44,7 +44,15 @@ namespace YP02_01
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //Вывод списка аренд
+            string sql = "SELECT * FROM LIstArend WHERE ID='" + Arendators.ID_Arendator +"';" ;
+            SqlConnection connection = null;
+            connection = new SqlConnection(connectionString);
+            adapter = new SqlDataAdapter(sql, connection);
+            connection.Open();
+            Arend = new DataTable();
+            adapter.Fill(Arend); //загрузка данных 
+            arendat_.ItemsSource = Arend.DefaultView; //привязка к DataGrid
+            connection.Close();
         }
     }
 }

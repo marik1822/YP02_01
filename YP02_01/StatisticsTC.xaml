@@ -9,15 +9,15 @@
       Title="StatisticsTC" Background="White" Loaded="Page_Loaded">
 
     <Grid>
-        <DataGrid    AutoGenerateColumns="False" IsReadOnly="True"  Name="arendat_" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top" Width="1912">
+        <DataGrid    AutoGenerateColumns="False" IsReadOnly="True"  Name="TC_" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top" Width="1912">
             <DataGrid.Columns>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Город" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Количество павильонов готовых к аренде" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Максимальное количество павильонов" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Количество сданных павильонов" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Общая площадь павильонов готовых к аренде" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Средняя стоимость аренды кв.м., без индексации" Binding="{Binding  }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding Name }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Город" Binding="{Binding City }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Количество павильонов готовых к аренде" Binding="{Binding FreePav }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Максимальное количество павильонов" Binding="{Binding Rent }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Количество сданных павильонов" Binding="{Binding AllPavils }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Общая площадь павильонов готовых к аренде" Binding="{Binding AreaSUM }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Средняя стоимость аренды кв.м., без индексации" Binding="{Binding AVGPRICEFORMETR }"></DataGridTextColumn>
 
             </DataGrid.Columns>
         </DataGrid>

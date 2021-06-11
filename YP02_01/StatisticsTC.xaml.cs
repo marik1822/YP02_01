@@ -61,7 +61,15 @@ namespace YP02_01
 
         private void NameTC_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Вывод статистики ТЦ
+            string sql = "EXECUTE ViewTC1 @nameTC ='" + NameTC.SelectedItem.ToString()+ "';";
+            SqlConnection connection = null;
+            connection = new SqlConnection(connectionString);
+            adapter = new SqlDataAdapter(sql, connection);
+            connection.Open();
+            TC = new DataTable();
+            adapter.Fill(TC); //загрузка данных 
+            TC_.ItemsSource = TC.DefaultView; //привязка к DataGrid
+            connection.Close();
         }
     }
 }

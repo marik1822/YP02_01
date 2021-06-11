@@ -11,9 +11,9 @@
     <Grid>
         <DataGrid    AutoGenerateColumns="False" IsReadOnly="True"  Name="TC_" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top" Width="1912">
             <DataGrid.Columns>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Город" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Процентная окупаемость" Binding="{Binding  }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding Name }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Город" Binding="{Binding City }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Процентная окупаемость" Binding="{Binding procentokupaemosti }"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label  Foreground="#FF37474F" Content="Название ТЦ:" HorizontalAlignment="Left" Margin="48,924,0,0" VerticalAlignment="Top" FontFamily="Arial"/>

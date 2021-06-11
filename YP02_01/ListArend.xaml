@@ -11,13 +11,13 @@
     <Grid>
         <DataGrid    AutoGenerateColumns="False" IsReadOnly="True"  Name="arendat_" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top" Width="1912">
             <DataGrid.Columns>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Город" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Номер павильона" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Начало аренды" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Окончание аренды" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Стоимость аренды" Binding="{Binding  }"></DataGridTextColumn>
-                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Статус аренды" Binding="{Binding  }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Название ТЦ" Binding="{Binding Name }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Город" Binding="{Binding City }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Номер павильона" Binding="{Binding NumberOfPavil }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Начало аренды" Binding="{Binding Start_rent }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Окончание аренды" Binding="{Binding Finisth_rent }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Стоимость аренды" Binding="{Binding ArendPrice }"></DataGridTextColumn>
+                <DataGridTextColumn FontFamily="Arial" Foreground="#FF37474F" Header="Статус аренды" Binding="{Binding Status }"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
