@@ -111,10 +111,21 @@ namespace YP02_01
             else
             if ( (Stage_.Text != "") && (NumberOfPavil_.Text != "") && (Area_.Text != "") && (Koef_.Text != "") && (Price_.Text != ""))
             {
+                string Koef1 = "";
+                string Koef2 = Koef_.Text.ToString();
+                for (int i = 0; i != Koef2.Length; i++)
+                {
+                    if (Koef2[i] == ',')
+                    {
+                        Koef1 = Koef1 + ".";
+                    }
+                    else
+                        Koef1 = Koef1 + Koef2[i];
+                }
                 string sql3;
                 Pavilions = new DataTable();
                 SqlConnection connection = null;
-                sql3 = "INSERT INTO Pavils SET Name='" + NameTC.SelectedItem.ToString() + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef_.Text + ";";
+                sql3 = "INSERT INTO Pavils SET Name='" + NameTC.SelectedItem.ToString() + "', NumberOfPavil='" + NumberOfPavil_.Text + "', Stage=" + Stage_.Text + ", Status='" + Status.SelectedItem.ToString() + "', Area=" + Area_.Text + ", PriceForMetr=" + Price_.Text + " ,Koef=" + Koef1  + ";";
                 connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(sql3, connection);
                 connection.Open();

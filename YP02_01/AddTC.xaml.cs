@@ -109,7 +109,7 @@ namespace YP02_01
                     else
                         Koef1 = Koef1 + Koef2[i];
                 }
-                sql3 = "INSERT INTO TC(Name,Status,CountPavil,City,Price,Koef,Stages) VALUES('" + Name_.Text + "','" + Status.SelectedItem.ToString() + "'," + NumOfPav_.Text + " ,'" + City_.Text + "' ," + PriceBuild_.Text + "," + Koef_.Text + " ," + Floor_.Text + " );";
+                sql3 = "INSERT INTO TC(Name,Status,CountPavil,City,Price,Koef,Stages) VALUES('" + Name_.Text + "','" + Status.SelectedItem.ToString() + "'," + NumOfPav_.Text + " ,'" + City_.Text + "' ," + PriceBuild_.Text + "," + Koef1 + " ," + Floor_.Text + " );";
                 connection = new SqlConnection(connectionString);
                 SqlCommand command = new SqlCommand(sql3, connection);
                 connection.Open();
